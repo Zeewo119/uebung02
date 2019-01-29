@@ -9,6 +9,21 @@ class Duplikate {
 	 */
 	static StringSet findeDuplikate(String text) {
 		// TODO Implementieren Sie die Methode gemäß dem obigen Javadoc Kommentar.
-		return null;
+
+		String myString = text.replaceAll("[^a-zA-Z 0-9]", "");
+		String[] words = myString.split(" ");
+
+		StringSetImpl impl = new StringSetImpl();
+		StringSetImpl doppelt = new StringSetImpl();
+
+		for(String s: words) {
+			if(impl.contains(s)) {
+				doppelt.add(s);
+			} else {
+				impl.add(s);
+			}
+		}
+
+		return doppelt;
 	}
 }
